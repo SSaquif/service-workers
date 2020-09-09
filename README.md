@@ -105,9 +105,17 @@ For the solutions and additional info, head to the course repo:
 
 ## Service Worker Notes
 
-```javascript
+1. Is a type of Web Worker
 
-```
+2. Has different lifecycle than a regular Web Worker
+
+3. Was initially to be called Network worker (a more accurate naem for what it does)
+
+4. It sits between our web app and rest of the web. This means:
+
+   1. Every web request that happens (files, AJAX calls, whatever), will funnel themselves through the service worker first
+
+   2. Service Worker can either just let them pass (do nothing) or listen for such requests and then process them for the client app
 
 ## Links From the Course
 
