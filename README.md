@@ -26,7 +26,7 @@ For the solutions and additional info, head to the course repo:
 
    1. [Transferables](https://developer.mozilla.org/en-US/docs/Web/API/Transferable)
 
-   2. [Share Array buffers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer)
+   2. [Shared Array buffers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer)
 
    3. [Atomics](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics)
 
@@ -50,14 +50,25 @@ For the solutions and additional info, head to the course repo:
 
 6. [MDN repo](https://github.com/mdn/simple-web-worker/blob/gh-pages/main.js)
 
-7. **Code summary** (see actual files main.js and worker.js for working code). Below is partial code.
+7. Finally see that even when the fibonacci solution is being calculated, our browser is not loading. We can scroll, click etc.
+
+8. **Basic Code Summary** (see actual files main.js and worker.js for working code).
 
 ```javascript
+// Here's the general idea
+
 // Main.js
 {
-  //Step 1 and 2
-  worker = new Worker("/js/worker.js");
-  worker.addEventListener("message", onMessage);
+  let worker;
+
+  function start() {
+    //Step 1 and 2
+    worker = new Worker("/js/worker.js");
+    worker.addEventListener("message", onMessage);
+
+    // Send Msg to Worker (to worker's inner scope TBMS)
+    worker.postMessage("Hello from client");
+  }
 
   // Then in some function, we listen and send to/from the worker.
   // Most likely will be 2 different functions
@@ -65,9 +76,11 @@ For the solutions and additional info, head to the course repo:
   function onMessage(event) {
     // Msg Received from Web Worker
     console.log("Data Received From Worker", event.data);
+  }
 
-    // Send Msg to Worker (to worker's inner scope TBMS)
-    worker.postMessage("Hello from client");
+  function stop() {
+    //In some function we will terminate the worker
+    worker.terminate();
   }
 }
 
@@ -84,6 +97,11 @@ For the solutions and additional info, head to the course repo:
   self.onmessage = onMessage;
 }
 ```
+
+### Conclusion
+
+1. For Basics see branch web-worker-basic
+2. For Entire Solution see branch web-worker-fibonacci
 
 ## Service Worker Notes
 
