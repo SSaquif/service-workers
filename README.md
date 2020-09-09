@@ -22,6 +22,14 @@ For the solutions and additional info, head to the course repo:
 
    3. [Web Workers api](https://developer.mozilla.org/en-US/docs/Web/API/Worker)
 
+3. Transferables, Shared Array Buffers, Atomics and High Resolution Timer Issues ([see FEM notes](https://frontendmasters.com/courses/service-workers/data-transfer-solutions/))
+
+   1. [Transferables](https://developer.mozilla.org/en-US/docs/Web/API/Transferable)
+
+   2. [Share Array buffers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer)
+
+   3. [Atomics](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics)
+
 ## Web Worker Notes
 
 1. Ceate a new Worker() Instance
@@ -42,7 +50,7 @@ For the solutions and additional info, head to the course repo:
 
 6. [MDN repo](https://github.com/mdn/simple-web-worker/blob/gh-pages/main.js)
 
-7. Code summary (see actual files main.js and worker.js for working code). Below is partial code.
+7. **Code summary** (see actual files main.js and worker.js for working code). Below is partial code.
 
 ```javascript
 // Main.js
