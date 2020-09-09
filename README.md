@@ -2,17 +2,13 @@
 
 Following along with Kyle Simpson's (@getify) course on service workers.
 
-## Starter Files
-
-This package contains the starter files for the Web Workers and Service Workers sections of the course
-
 For the solutions and additional info, head to the course repo:
 
 1. [Web Workers](https://github.com/FrontendMasters/web-workers)
 
 2. [Service Workers](https://github.com/FrontendMasters/service-workers-offline)
 
-## Notes
+## General Notes
 
 ### Cool/New Things I Learned/Did
 
@@ -26,11 +22,11 @@ For the solutions and additional info, head to the course repo:
 
    3. [Web Workers api](https://developer.mozilla.org/en-US/docs/Web/API/Worker)
 
-### Web Worker Notes
+## Web Worker Notes
 
 1. Ceate a new Worker() Instance
 
-   1. Argument = ulr to a JS file, which will be run in a separete thread
+   1. Argument = url to a JS file, which will be run in a separete thread
 
 2. We can add MessageEvent Listeners to workers (see api)
 
@@ -81,7 +77,7 @@ For the solutions and additional info, head to the course repo:
 }
 ```
 
-### Service Worker Notes
+## Service Worker Notes
 
 ```javascript
 
