@@ -18,12 +18,13 @@
   }
 
   function renderFib(num, fib) {
-    var p = document.createElement("div");
-    p.innerText = `Fib(${num}): ${fib}`;
+    const fibDiv = document.createElement("div");
+    fibDiv.innerText = `Fib(${num}): ${fib}`;
+
     if (fibsList.childNodes.length > 0) {
-      fibsList.insertBefore(p, fibsList.childNodes[0]);
+      fibsList.insertBefore(fibDiv, fibsList.childNodes[0]);
     } else {
-      fibsList.appendChild(p);
+      fibsList.appendChild(fibDiv);
     }
   }
 
@@ -41,6 +42,9 @@
 
     // We can add MessageEvent Listeners to workers
     worker.addEventListener("message", onMessage);
+
+    //
+    worker.postMessage({ start: true });
   }
 
   function stopFibs() {
@@ -49,14 +53,14 @@
 
     startStopBtn.innerText = "Start";
 
-    // TODO
+    // Kill our web Worker
+    worker.terminate();
   }
 
   function onMessage(event) {
     // Msg Received from Web Worker
     console.log("Data Received From Worker", event.data);
-
-    // Send Msg to Worker (to worker's inner scope TBMS)
-    worker.postMessage("Hello from client");
+    const { fibIndex, fibNum } = event.data;
+    renderFib(fibIndex, fibNum);
   }
 })();
